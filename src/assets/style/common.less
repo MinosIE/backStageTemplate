@@ -1,0 +1,112 @@
+.cloWhite {
+    color: #fff;
+}
+
+.bgWhite {
+    background-color: #fff;
+}
+
+.block {
+    display: block;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.clearfix {
+    &:after {
+        content: '';
+        .block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.tc {
+    text-align: center;
+}
+
+.cloBlue {
+    color: #1890ff;
+}
+
+.container {
+    padding: 30px 20px;
+    margin-top: 16px;
+    border-top: 1px dashed #ddd;
+    // .oh;
+}
+.optBtnWrap {
+    button {
+        margin-left: 10px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    :global {
+        .ant-badge {
+            margin-left: 10px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.inputWidth(@width: 100px) {
+    width: @width;
+}
+
+.mgt15,
+.tableWrap {
+    margin-top: 15px;
+}
+
+.tr {
+    text-align: right;
+}
+
+.checkWrap {
+    .tr;
+    button {
+        margin-left: 20px;
+    }
+}
+.btmWrap {
+    .mgt15;
+    .tr;
+}
+.inlineB {
+    display: inline-block;
+}
+
+.myPage {
+    margin-top: 15px;
+    text-align: right;
+}

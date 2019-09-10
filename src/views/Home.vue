@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <Laycommon>
+    <router-view/>
+  </Laycommon>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import Laycommon from '@/components/Laycommon';
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
+    components: {
+        Laycommon,
+    },
+    data() {
+        return {};
+    },
+    methods: {},
+    mounted() {},
 };
 </script>
+<style lang="less">
+</style>
