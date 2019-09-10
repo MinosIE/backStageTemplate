@@ -274,7 +274,7 @@ export default {
     }
     .container {
         width: 100%;
-        min-height: 100%;
+        min-height: 100vh;
         background: #f0f2f5;
         background-size: 100%;
         padding: 110px 0 144px;
