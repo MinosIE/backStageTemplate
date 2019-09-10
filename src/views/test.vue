@@ -1,5 +1,15 @@
 <template>
     <div :class="$style.test">
+        <a-card title="按钮">
+            <div :class="$style.btnWrap">
+                <a-button type="primary">Primary</a-button>
+                <a-button>Default</a-button>
+                <a-button type="dashed">Dashed</a-button>
+                <a-button type="danger">Danger</a-button>
+                <a-button type="link">Link</a-button>
+            </div>
+        </a-card>
+
         <a-card title="项目中用到的图标">
             <a-row v-for="i in Math.ceil(iconList.length / 6)" :key="i">
                 <a-col
@@ -15,51 +25,10 @@
     </div>
 </template>
 <script>
-import {
-    SmileOutline,
-    MehOutline,
-    CloseOutline,
-    CheckOutline,
-    LoadingOutline,
-    CheckCircleOutline,
-    InfoCircleOutline,
-    CloseCircleOutline,
-    ExclamationCircleOutline,
-    CheckCircleFill,
-    InfoCircleFill,
-    CloseCircleFill,
-    ExclamationCircleFill,
-    UpOutline,
-    DownOutline,
-    LeftOutline,
-    RightOutline,
-    RedoOutline,
-    CalendarOutline,
-    SearchOutline,
-    BarsOutline,
-    StarOutline,
-    FilterOutline,
-    CaretUpOutline,
-    CaretDownOutline,
-    PlusOutline,
-    FileOutline,
-    FolderOpenOutline,
-    FolderOutline,
-    PaperClipOutline,
-    PictureOutline,
-    EyeOutline,
-    DeleteOutline,
-    UploadOutline,
-    DownloadOutline,
-    ExportOutline,
-    ClockCircleOutline,
-    MenuFoldOutline,
-    MenuUnfoldOutline,
-    UserOutline,
-    VideoCameraOutline,
-} from '@/icons';
+import * as icons from '@/icons';
 import { Button, Select, Message, Icon, Row, Col, Card } from 'ant-design-vue';
 const { Option } = Select;
+
 export default {
     components: {
         [Button.name]: Button,
@@ -73,49 +42,7 @@ export default {
     mixins: [],
     data() {
         return {
-            iconList: [
-                SmileOutline,
-                MehOutline,
-                CloseOutline,
-                CheckOutline,
-                LoadingOutline,
-                CheckCircleOutline,
-                InfoCircleOutline,
-                CloseCircleOutline,
-                ExclamationCircleOutline,
-                CheckCircleFill,
-                InfoCircleFill,
-                CloseCircleFill,
-                ExclamationCircleFill,
-                UpOutline,
-                DownOutline,
-                LeftOutline,
-                RightOutline,
-                RedoOutline,
-                CalendarOutline,
-                SearchOutline,
-                BarsOutline,
-                StarOutline,
-                FilterOutline,
-                CaretUpOutline,
-                CaretDownOutline,
-                PlusOutline,
-                FileOutline,
-                FolderOpenOutline,
-                FolderOutline,
-                PaperClipOutline,
-                PictureOutline,
-                EyeOutline,
-                DeleteOutline,
-                UploadOutline,
-                DownloadOutline,
-                ExportOutline,
-                ClockCircleOutline,
-                MenuFoldOutline,
-                MenuUnfoldOutline,
-                UserOutline,
-                VideoCameraOutline,
-            ],
+            iconList: Object.values(icons),
         };
     },
     methods: {},
@@ -123,6 +50,15 @@ export default {
 };
 </script>
 <style lang="less" module>
-.test {
+.btnWrap {
+    margin: 10px 0;
+    button {
+        margin-right: 10px;
+    }
+}
+:global {
+    .ant-card {
+        margin-bottom: 20px;
+    }
 }
 </style>
