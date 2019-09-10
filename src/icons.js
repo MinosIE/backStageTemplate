@@ -39,3 +39,7 @@ export { default as UploadOutline } from '@ant-design/icons/lib/outline/UploadOu
 export { default as DownloadOutline } from '@ant-design/icons/lib/outline/DownloadOutline';
 export { default as ExportOutline } from '@ant-design/icons/lib/outline/ExportOutline';
 export { default as ClockCircleOutline } from '@ant-design/icons/lib/outline/ClockCircleOutline';
+export { default as MenuFoldOutline } from '@ant-design/icons/lib/outline/MenuFoldOutline';
+export { default as MenuUnfoldOutline } from '@ant-design/icons/lib/outline/MenuUnfoldOutline';
+export { default as UserOutline } from '@ant-design/icons/lib/outline/UserOutline';
+export { default as VideoCameraOutline } from '@ant-design/icons/lib/outline/VideoCameraOutline';
