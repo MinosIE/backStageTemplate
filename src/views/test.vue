@@ -1,13 +1,13 @@
 <template>
-    <div :class="$style.container">
+    <div :class="$style.test">
         <a-card title="项目中用到的图标">
-            <a-row v-for="i in Math.ceil(iconList.length / 12)" :key="i">
+            <a-row v-for="i in Math.ceil(iconList.length / 6)" :key="i">
                 <a-col
-                    :span="2"
-                    v-for="(item, index) in iconList.slice(12 * (i - 1), 12 * i)"
+                    :span="4"
+                    v-for="(item, index) in iconList.slice(6 * (i - 1), 6 * i)"
                     :key="index"
                 >
-                    <a-icon :type="item.type" />
+                    <a-icon :type="item.name" />
                     {{item.name}}
                 </a-col>
             </a-row>
@@ -15,6 +15,49 @@
     </div>
 </template>
 <script>
+import {
+    SmileOutline,
+    MehOutline,
+    CloseOutline,
+    CheckOutline,
+    LoadingOutline,
+    CheckCircleOutline,
+    InfoCircleOutline,
+    CloseCircleOutline,
+    ExclamationCircleOutline,
+    CheckCircleFill,
+    InfoCircleFill,
+    CloseCircleFill,
+    ExclamationCircleFill,
+    UpOutline,
+    DownOutline,
+    LeftOutline,
+    RightOutline,
+    RedoOutline,
+    CalendarOutline,
+    SearchOutline,
+    BarsOutline,
+    StarOutline,
+    FilterOutline,
+    CaretUpOutline,
+    CaretDownOutline,
+    PlusOutline,
+    FileOutline,
+    FolderOpenOutline,
+    FolderOutline,
+    PaperClipOutline,
+    PictureOutline,
+    EyeOutline,
+    DeleteOutline,
+    UploadOutline,
+    DownloadOutline,
+    ExportOutline,
+    ClockCircleOutline,
+    MenuFoldOutline,
+    MenuUnfoldOutline,
+    UserOutline,
+    VideoCameraOutline,
+} from '@/icons';
 import { Button, Select, Message, Icon, Row, Col, Card } from 'ant-design-vue';
 const { Option } = Select;
 export default {
@@ -31,12 +74,47 @@ export default {
     data() {
         return {
             iconList: [
-                { type: 'upload', name: '上传' },
-                { type: 'download', name: '下载' },
-                { type: 'export', name: '导出' },
-                { type: 'loading', name: '加载' },
-                { type: 'plus', name: '加号' },
-                { type: 'check', name: '完成' },
+                SmileOutline,
+                MehOutline,
+                CloseOutline,
+                CheckOutline,
+                LoadingOutline,
+                CheckCircleOutline,
+                InfoCircleOutline,
+                CloseCircleOutline,
+                ExclamationCircleOutline,
+                CheckCircleFill,
+                InfoCircleFill,
+                CloseCircleFill,
+                ExclamationCircleFill,
+                UpOutline,
+                DownOutline,
+                LeftOutline,
+                RightOutline,
+                RedoOutline,
+                CalendarOutline,
+                SearchOutline,
+                BarsOutline,
+                StarOutline,
+                FilterOutline,
+                CaretUpOutline,
+                CaretDownOutline,
+                PlusOutline,
+                FileOutline,
+                FolderOpenOutline,
+                FolderOutline,
+                PaperClipOutline,
+                PictureOutline,
+                EyeOutline,
+                DeleteOutline,
+                UploadOutline,
+                DownloadOutline,
+                ExportOutline,
+                ClockCircleOutline,
+                MenuFoldOutline,
+                MenuUnfoldOutline,
+                UserOutline,
+                VideoCameraOutline,
             ],
         };
     },

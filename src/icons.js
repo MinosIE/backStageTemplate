@@ -22,7 +22,7 @@ export { default as RedoOutline } from '@ant-design/icons/lib/outline/RedoOutlin
 export { default as CalendarOutline } from '@ant-design/icons/lib/outline/CalendarOutline';
 export { default as SearchOutline } from '@ant-design/icons/lib/outline/SearchOutline';
 export { default as BarsOutline } from '@ant-design/icons/lib/outline/BarsOutline';
-export { default as StarFill } from '@ant-design/icons/lib/fill/StarFill';
+export { default as StarOutline } from '@ant-design/icons/lib/outline/StarOutline';
 export { default as FilterOutline } from '@ant-design/icons/lib/outline/FilterOutline';
 export { default as CaretUpOutline } from '@ant-design/icons/lib/outline/CaretUpOutline';
 export { default as CaretDownOutline } from '@ant-design/icons/lib/outline/CaretDownOutline';
