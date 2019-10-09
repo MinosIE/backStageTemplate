@@ -6,6 +6,7 @@ export { default as MehOutline } from '@ant-design/icons/lib/outline/MehOutline'
 export { default as CloseOutline } from '@ant-design/icons/lib/outline/CloseOutline';
 export { default as ArrowLeftOutline } from '@ant-design/icons/lib/outline/ArrowLeftOutline';
 export { default as ArrowRightOutline } from '@ant-design/icons/lib/outline/ArrowRightOutline';
+export { default as ExperimentOutline } from '@ant-design/icons/lib/outline/ExperimentOutline';
 export { default as CheckOutline } from '@ant-design/icons/lib/outline/CheckOutline';
 export { default as LoadingOutline } from '@ant-design/icons/lib/outline/LoadingOutline';
 export { default as CheckCircleOutline } from '@ant-design/icons/lib/outline/CheckCircleOutline';

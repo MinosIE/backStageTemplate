@@ -1,3 +1,5 @@
+import test from './test';
+import nav1 from './nav1';
 const routes = [
     {
         path: '/login',
@@ -15,35 +17,7 @@ const routes = [
         },
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
         redirect: { name: 'test' },
-        children: [
-            {
-                path: 'test',
-                name: 'test',
-                meta: {
-                    title: '测试页面',
-                    icon: 'experiment',
-                },
-                component: () => import(/* webpackChunkName: "test" */ '@/views/test.vue'),
-            },
-            {
-                path: 'nav1',
-                name: 'nav1',
-                meta: {
-                    title: '测试页面',
-                    icon: 'experiment',
-                },
-                component: () => import(/* webpackChunkName: "nav1" */ '@/views/nav1/nav1.vue'),
-            },
-            {
-                path: 'nav2',
-                name: 'nav2',
-                meta: {
-                    title: '测试页面',
-                    icon: 'experiment',
-                },
-                component: () => import(/* webpackChunkName: "nav2" */ '@/views/nav2/nav2.vue'),
-            },
-        ],
+        children: [test, nav1],
     },
 ];
 export default routes;

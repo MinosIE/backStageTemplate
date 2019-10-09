@@ -63,11 +63,11 @@ export default {
             this[action](targetKey);
         },
         tabsChange(activeKey) {
-            console.log(activeKey);
             this.$router.push(activeKey);
             this.$refs.siderbar.getActive(activeKey);
         },
         addTabs(path, key) {
+            console.log(path);
             const { panes, activeKey } = this;
             if (panes.findIndex(item => item.key == key) === -1) {
                 panes.push({
@@ -76,7 +76,6 @@ export default {
                     key,
                 });
             }
-            //注释
             this.$router.push(path);
             this.activeKey = key;
         },

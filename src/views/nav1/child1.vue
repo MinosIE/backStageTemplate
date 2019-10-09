@@ -1,5 +1,5 @@
 <template>
-    <div>nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1nav1</div>
+    <div>children111111111111111</div>
 </template>
 <script>
 export default {};
