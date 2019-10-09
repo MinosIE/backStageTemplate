@@ -1,22 +1,6 @@
 <template>
     <a-layout>
-        <a-layout-sider :trigger="null" collapsible v-model="collapsed">
-            <div :class="$style.logo" />
-            <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
-                <a-menu-item key="1">
-                    <a-icon type="user" />
-                    <span>nav 1</span>
-                </a-menu-item>
-                <a-menu-item key="2">
-                    <a-icon type="video-camera" />
-                    <span>nav 2</span>
-                </a-menu-item>
-                <a-menu-item key="3">
-                    <a-icon type="upload" />
-                    <span>nav 3</span>
-                </a-menu-item>
-            </a-menu>
-        </a-layout-sider>
+        <sider-bar :collapsed="collapsed" @addTabs="addTabs" ref="siderbar" />
         <a-layout>
             <a-layout-header style="background: #fff; padding: 0; border-bottom: 1px solid #eee">
                 <a-icon
@@ -24,31 +8,34 @@
                     :type="collapsed ? 'menu-unfold' : 'menu-fold'"
                     @click="()=> collapsed = !collapsed"
                 />
+                <div :class="$style.headerRight">
+                    <header-avatar class="header-item" />
+                </div>
             </a-layout-header>
             <a-layout-content :style="{ padding: '15px', background: '#fff', minHeight: '280px' }">
-                <div :class="$style.breadcrumb">
-                    <a-breadcrumb>
-                        <a-breadcrumb-item>Home</a-breadcrumb-item>
-                        <a-breadcrumb-item>
-                            <a href>Application Center</a>
-                        </a-breadcrumb-item>
-                        <a-breadcrumb-item>
-                            <a href>Application List</a>
-                        </a-breadcrumb-item>
-                        <a-breadcrumb-item>An Application</a-breadcrumb-item>
-                    </a-breadcrumb>
-                </div>
-
+                <a-tabs
+                    hideAdd
+                    v-model="activeKey"
+                    type="editable-card"
+                    @edit="onEdit"
+                    @change="tabsChange"
+                >
+                    <a-tab-pane v-for="pane in panes" :key="pane.key" :closable="pane.closable">
+                        <span slot="tab" :pagekey="pane.path">{{pane.title}}</span>
+                    </a-tab-pane>
+                </a-tabs>
                 <slot />
             </a-layout-content>
         </a-layout>
     </a-layout>
 </template>
 <script>
-import { Layout, Menu, Icon, Breadcrumb } from 'ant-design-vue';
+import { Layout, Menu, Icon, Tabs } from 'ant-design-vue';
+import HeaderAvatar from './HeaderAvatar.vue';
+import SiderBar from './SiderBar';
 const { Sider, Header, Content } = Layout;
 const { Item: MenuItem } = Menu;
-const { Item: BreadcrumbItem } = Breadcrumb;
+const { TabPane } = Tabs;
 export default {
     components: {
         [Layout.name]: Layout,
@@ -58,15 +45,52 @@ export default {
         [Menu.name]: Menu,
         [MenuItem.name]: MenuItem,
         [Icon.name]: Icon,
-        [Breadcrumb.name]: Breadcrumb,
-        [BreadcrumbItem.name]: BreadcrumbItem,
+        [Tabs.name]: Tabs,
+        [TabPane.name]: TabPane,
+        HeaderAvatar,
+        SiderBar,
     },
     data() {
         return {
             collapsed: false,
+            activeKey: 0,
+            panes: [],
         };
     },
     created() {},
+    methods: {
+        onEdit(targetKey, action) {
+            this[action](targetKey);
+        },
+        tabsChange(activeKey) {
+            console.log(activeKey);
+            this.$router.push(activeKey);
+            this.$refs.siderbar.getActive(activeKey);
+        },
+        addTabs(path, key) {
+            const { panes, activeKey } = this;
+            if (panes.findIndex(item => item.key == key) === -1) {
+                panes.push({
+                    path,
+                    title: path,
+                    key,
+                });
+            }
+            //注释
+            this.$router.push(path);
+            this.activeKey = key;
+        },
+        remove(targetKey) {
+            let { activeKey, panes } = this;
+            const targetIndex = panes.findIndex(item => item.key === targetKey);
+            if (activeKey === targetKey) {
+                activeKey = panes[targetIndex + (targetIndex > 0 ? -1 : 1)].key;
+                this.activeKey = activeKey;
+                this.$router.replace(activeKey);
+            }
+            panes.splice(targetIndex, 1);
+        },
+    },
 };
 </script>
 <style lang="less" module>
@@ -91,7 +115,8 @@ export default {
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
 }
-.breadcrumb {
-    margin-bottom: 15px;
+.headerRight {
+    float: right;
+    margin: 0 24px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <Laycommon>
-    <router-view/>
-  </Laycommon>
+    <Laycommon>
+        <router-view />
+    </Laycommon>
 </template>
 <script>
 import Laycommon from '@/components/Laycommon';

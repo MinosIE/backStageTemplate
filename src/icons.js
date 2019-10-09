@@ -4,6 +4,8 @@ export { default as MehOutline } from '@ant-design/icons/lib/outline/MehOutline'
 
 // export what antd other components need
 export { default as CloseOutline } from '@ant-design/icons/lib/outline/CloseOutline';
+export { default as ArrowLeftOutline } from '@ant-design/icons/lib/outline/ArrowLeftOutline';
+export { default as ArrowRightOutline } from '@ant-design/icons/lib/outline/ArrowRightOutline';
 export { default as CheckOutline } from '@ant-design/icons/lib/outline/CheckOutline';
 export { default as LoadingOutline } from '@ant-design/icons/lib/outline/LoadingOutline';
 export { default as CheckCircleOutline } from '@ant-design/icons/lib/outline/CheckCircleOutline';
@@ -43,3 +45,5 @@ export { default as MenuFoldOutline } from '@ant-design/icons/lib/outline/MenuFo
 export { default as MenuUnfoldOutline } from '@ant-design/icons/lib/outline/MenuUnfoldOutline';
 export { default as UserOutline } from '@ant-design/icons/lib/outline/UserOutline';
 export { default as VideoCameraOutline } from '@ant-design/icons/lib/outline/VideoCameraOutline';
+export { default as SettingOutline } from '@ant-design/icons/lib/outline/SettingOutline';
+export { default as PoweroffOutline } from '@ant-design/icons/lib/outline/PoweroffOutline';

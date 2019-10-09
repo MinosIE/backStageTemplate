@@ -25,6 +25,24 @@ const routes = [
                 },
                 component: () => import(/* webpackChunkName: "test" */ '@/views/test.vue'),
             },
+            {
+                path: 'nav1',
+                name: 'nav1',
+                meta: {
+                    title: '测试页面',
+                    icon: 'experiment',
+                },
+                component: () => import(/* webpackChunkName: "nav1" */ '@/views/nav1/nav1.vue'),
+            },
+            {
+                path: 'nav2',
+                name: 'nav2',
+                meta: {
+                    title: '测试页面',
+                    icon: 'experiment',
+                },
+                component: () => import(/* webpackChunkName: "nav2" */ '@/views/nav2/nav2.vue'),
+            },
         ],
     },
 ];
