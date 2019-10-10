@@ -30,7 +30,7 @@
     </a-layout>
 </template>
 <script>
-import { Layout, Menu, Icon, Tabs } from 'ant-design-vue';
+import { Layout, Menu, Icon, Tabs, Message } from 'ant-design-vue';
 import HeaderAvatar from './HeaderAvatar.vue';
 import SiderBar from './SiderBar';
 const { Sider, Header, Content } = Layout;
@@ -47,6 +47,7 @@ export default {
         [Icon.name]: Icon,
         [Tabs.name]: Tabs,
         [TabPane.name]: TabPane,
+        [Message.name]: Message,
         HeaderAvatar,
         SiderBar,
     },
@@ -67,7 +68,6 @@ export default {
             this.$refs.siderbar.getActive(activeKey);
         },
         addTabs(path, key) {
-            console.log(path);
             const { panes, activeKey } = this;
             if (panes.findIndex(item => item.key == key) === -1) {
                 panes.push({
@@ -76,17 +76,23 @@ export default {
                     key,
                 });
             }
-            this.$router.push(path);
             this.activeKey = key;
+            if (this.$route.path == path) return;
+            this.$router.push(path);
         },
         remove(targetKey) {
             let { activeKey, panes } = this;
+            if (panes.length <= 1) {
+                Message.warning('这是最后一页，不能再关闭了啦');
+                return;
+            }
             const targetIndex = panes.findIndex(item => item.key === targetKey);
             if (activeKey === targetKey) {
                 activeKey = panes[targetIndex + (targetIndex > 0 ? -1 : 1)].key;
                 this.activeKey = activeKey;
                 this.$router.replace(activeKey);
             }
+
             panes.splice(targetIndex, 1);
         },
     },

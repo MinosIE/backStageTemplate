@@ -72,7 +72,6 @@ export default {
     },
     created() {
         this.updateMenu();
-        console.log(this.$router.options.routes[1].children);
         this.menuList = this.$router.options.routes[1].children;
     },
     watch: {
@@ -87,12 +86,10 @@ export default {
         },
         updateMenu(path = this.$route.path, key = this.$route.path) {
             this.selectedKeys = [path];
-            console.log(path);
             this.$emit('addTabs', path, key);
         },
         changeMenu({ item, key, keyPath }) {
-            console.log(key);
-            console.log(keyPath);
+            if (key == this.$route.path) return;
             const path = key.toString();
             this.updateMenu(path, key);
         },

@@ -43,9 +43,7 @@ export default {
             },
         };
     },
-    created() {
-        console.log(Menu);
-    },
+    created() {},
 };
 </script>
 
